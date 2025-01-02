@@ -9,15 +9,20 @@ function App() {
     const [showProductList, setShowProductList] = useState(false);
 
     const handleGetStartedClick = () => {
-        setShowProductList(true);
+        setShowProductList(true); // Show the product list on "Get Started" click
     };
 
     const handleContinueShopping = () => {
         setShowCart(false); // Navigate back to the product listing
     };
 
+    const handleViewCart = () => {
+        setShowCart(true); // Navigate to the cart view
+    };
+
     return (
         <div className="app-container">
+            {/* Landing Page */}
             <div className={`landing-page ${showProductList ? 'fade-out' : ''}`}>
                 <div className="background-image"></div>
                 <div className="content">
@@ -35,11 +40,13 @@ function App() {
                     </div>
                 </div>
             </div>
+
+            {/* Product List and Cart */}
             <div className={`product-list-container ${showProductList ? 'visible' : ''}`}>
                 {showCart ? (
                     <Cart onContinueShopping={handleContinueShopping} />
                 ) : (
-                    <ProductList onViewCart={() => setShowCart(true)} />
+                    <ProductList onViewCart={handleViewCart} />
                 )}
             </div>
         </div>
