@@ -1,8 +1,8 @@
 import React, { useState,useEffect } from 'react';
 import './ProductList.css'
-import CartItem from './CartItem';
+import CartItem from './CartItem.jsx';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem } from './CreateSlice';
+import { addItem } from './CartSlice.jsx';
 function ProductList(props) {
     const [showCart, setShowCart] = useState(false); 
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
